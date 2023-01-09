@@ -1,0 +1,167 @@
+﻿@page "/"
+@inject HttpClient Http
+@inject CustomerService CustomerService
+
+@using CustomerManager.Models
+
+
+<PageTitle>Customers</PageTitle>
+
+<h1>Customers</h1>
+<RadzenNotification />
+
+@if (CustomerService.customers == null)
+{
+        <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenButton ButtonStyle="ButtonStyle.Success" Icon="add_circle_outline" Class="mt-2 mb-4" Text="Add New Customer" Click="@InsertRow" Disabled=@(modificationEnabled == true) />
+    <RadzenDataGrid @ref="customersGrid" AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Simple" AllowSorting="true" PageSize="5"
+                AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true" Data="@CustomerService.customers" TItem="Customer" LogicalFilterOperator="LogicalFilterOperator.And"
+                    EditMode="DataGridEditMode.Single" RowUpdate="@OnUpdateRow" RowCreate="@OnCreateRow">
+        <Columns>
+            <RadzenDataGridColumn TItem="Customer" Property="Id" Filterable="false" Sortable="false" Title="Id" Width="60px" >
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Property="Identifier" Filterable="true" Sortable="true" Title="Identifier" Width="180px">
+                <EditTemplate Context="customer">
+                    <RadzenTextBox @bind-Value="customer.Identifier" Style="width:100%; display: block" Name="Identifier" />
+                    <RadzenRequiredValidator Text="Identifier is required" Component="Identifier" Popup="true" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Property="Category" Filterable="true" Sortable="false" Title="Category" Width="250px">
+                <EditTemplate Context="customer">
+                    <RadzenDropDown @bind-Value="customer.Category" Data="@CustomerService.customerCategories" Style="width:100%; display: block;" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Property="FirstName" Filterable="true" Sortable="true" Title="First name" Width="150px">
+                <EditTemplate Context="customer">
+                    @if (customer.Category == CustomerCategory.Residential)
+                    {
+                        <RadzenTextBox @bind-Value="customer.FirstName" Style="width:100%; display: block" Name="FirstName"/>
+                        <RadzenRequiredValidator Text="First name is required" Component="FirstName" Popup="true" />
+                    }
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Property="LastName" Filterable="true" Sortable="true" Title="Last name" Width="150px">
+                <EditTemplate Context="customer">
+                    @if (customer.Category == CustomerCategory.Residential)
+                    {
+                        <RadzenTextBox @bind-Value="customer.LastName" Style="width:100%; display: block" Name="LastName"/>
+                        <RadzenRequiredValidator Text="Last name is required" Component="LastName" Popup="true" />
+                    }
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Property="ContactName" Filterable="false" Sortable="false" Title="Contact name" Width="200px">
+                 <EditTemplate Context="customer">
+                    @if (customer.Category == CustomerCategory.Corporate)
+                    {
+                        <RadzenTextBox @bind-Value="customer.ContactName" Style="width:100%; display: block" Name="ContactName" />
+                        <RadzenRequiredValidator Text="Contact name is required" Component="ContactName" Popup="true" />
+                    }
+                    
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Property="Phone" Filterable="false" Sortable="false" Title="Phone" Width="150px">
+                <EditTemplate Context="customer">
+                    <RadzenTextBox @bind-Value="customer.Phone" Style="width:100%; display: block" Name="Phone" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Property="Address" Filterable="false" Sortable="false" Title="Address" Width="200px">
+                 <EditTemplate Context="customer">
+                    <RadzenTextBox @bind-Value="customer.Address" Style="width:100%; display: block" Name="Address" />
+                </EditTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn TItem="Customer" Context="customer" Filterable="false" Sortable="false" TextAlign="TextAlign.Right" Width="140px">
+                <Template Context="customer">
+                    <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Medium" Click="@(args => EditRow(customer))" @onclick:stopPropagation="true">
+                    </RadzenButton>
+                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@(args => DeleteRow(customer))" @onclick:stopPropagation="true">
+                    </RadzenButton>
+                </Template>
+                <EditTemplate Context="customer">
+                    <RadzenButton Icon="check" ButtonStyle="ButtonStyle.Success" Variant="Variant.Flat" Size="ButtonSize.Medium" Click="@((args) => SaveRow(customer))">
+                    </RadzenButton>
+                    <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@((args) => CancelEdit(customer))">
+                    </RadzenButton>
+                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@(args => DeleteRow(customer))">
+                    </RadzenButton>
+                </EditTemplate>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+}
+
+@code {
+
+    private RadzenDataGrid<Customer> customersGrid;
+    private bool modificationEnabled =   false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CustomerService.List();
+    }
+
+    void DisableModification()
+    {
+        modificationEnabled = false;
+    }
+
+    void EnableModification()
+    {
+        modificationEnabled = true;
+    }
+
+    async Task EditRow(Customer customer)
+    {
+        EnableModification();
+        await customersGrid.EditRow(customer);
+    }
+
+    async Task OnUpdateRow(Customer customer)
+    {
+        await CustomerService.Update(customer);
+        DisableModification();
+        await customersGrid.Reload();
+    }
+
+    async Task SaveRow(Customer customer)
+    {
+        await customersGrid.UpdateRow(customer);
+    }
+
+    void CancelEdit(Customer customer)
+    {
+        customersGrid.CancelEditRow(customer);
+        DisableModification();
+    }
+
+    async Task DeleteRow(Customer customer)
+    {
+        if (CustomerService.customers.Contains(customer))
+        {
+
+            await CustomerService.Delete(customer.Id);
+            await customersGrid.Reload();
+        }
+        else
+        {
+            customersGrid.CancelEditRow(customer);
+            await customersGrid.Reload();
+        }
+        DisableModification();
+    }
+
+    async Task InsertRow()
+    {
+        EnableModification();
+        await customersGrid.InsertRow(new Customer());
+    }
+
+    async Task OnCreateRow(Customer customer)
+    {
+        await CustomerService.Create(customer);
+        DisableModification();
+        await customersGrid.Reload();
+    }
+}
