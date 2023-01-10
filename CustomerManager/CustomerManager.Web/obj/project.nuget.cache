@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GE9onyxjY4YOv9/WFT6bwWuGhyQgRNM8x/DPHGrbnjowGReCJvXgKpHqT5P58Ah/8MCi1GPF7LV9LbTFtrqC+A==",
+  "dgSpecHash": "Cwx9fbVyycYYdpsa9gqGaW0SqHkhFD7cjhnkd82xtTk9Vw/9/fXqGB/IerMyYIrCETZXYreuiptmeZqjsQqIqQ==",
   "success": true,
-  "projectFilePath": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Web\\CustomerManager.Web.csproj",
+  "projectFilePath": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Web\\CustomerManager.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Balazs\\.nuget\\packages\\libsassbuilder\\2.0.1\\libsassbuilder.2.0.1.nupkg.sha512",
     "C:\\Users\\Balazs\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.10\\microsoft.aspnetcore.authorization.6.0.10.nupkg.sha512",

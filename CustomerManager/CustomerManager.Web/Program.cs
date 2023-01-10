@@ -10,5 +10,6 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<Radzen.NotificationService>();
+builder.Services.AddScoped<Radzen.DialogService>();
 builder.Services.AddScoped<CustomerService>();
 await builder.Build().RunAsync();

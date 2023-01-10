@@ -200,15 +200,15 @@
       "mscorlib.dll": "sha256-cx\/3nJhFns3tZhQNQOyiRyKJESKxOjLVufzWnri6KSA=",
       "netstandard.dll": "sha256-yWufW5W4SSfjocBcWTEDqnFwTd\/VYtLMc2Y9mPmlggc=",
       "System.Private.CoreLib.dll": "sha256-H009wzPwRoDZlwvpN4KLCsUwN7Y1AmjKB3PIEHA7ObQ=",
-      "CustomerManager.Models.dll": "sha256-ffO2ASbkl7wE\/o0eMszGu\/E6gJshqgNqC0yDDu6flBA=",
-      "CustomerManager.Web.dll": "sha256-Ej2jstfqGKSsSQsxlHj+9lVqZr9hUNHDWZVWa9KEdek="
+      "CustomerManager.Models.dll": "sha256-WfeyS1pUD+5Me9bI\/5R5M1CSUcZ6dwkMuG4J5R70jGs=",
+      "CustomerManager.Web.dll": "sha256-aO4F+JApJdld2iQFxVOWCUQRTOKQT1z6YPblQIBhbyk="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "CustomerManager.Models.pdb": "sha256-HnGS0NG1NLQSzZ3xiTJCes20WvlOGq4eyLCyFbLBF1w=",
-      "CustomerManager.Web.pdb": "sha256-WMT4q0HdI1B5Mwe5R1PIHtJbnMjlByXX34rhLnsFTq8="
+      "CustomerManager.Models.pdb": "sha256-2Fr29Z2qHJiM4t\/dc9wkYYCiDl8zxu1UZQ4\/3j7Ye50=",
+      "CustomerManager.Web.pdb": "sha256-ACKKQScODOra4o3LV2VIyd14dLv7y0l3Relz5d13eF4="
     },
     "runtime": {
       "dotnet.6.0.11.p83do4nc06.js": "sha256-F30V+6jU3jwJYFZoLuwMAqzTiOXu6q7zGgOdjYBofDI=",

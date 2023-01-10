@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nXIlN2xDtJAyjhy6jr5SCNolk4Ex5F5VgGeYsRjmsAcMiLoU7YXGTB5hBmM3rrWouBR9iSfUUH4mk8Q4YihQnw==",
+  "dgSpecHash": "kPpSX/ZoZp1pxAbN9pw0/rZ8mrHuglTNhhPKOHxFrTWXzox52/ZfM8tGeHtkWmYa9SD5LtCzcDgYBp8EGsDOfA==",
   "success": true,
-  "projectFilePath": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Api\\CustomerManager.Api.csproj",
+  "projectFilePath": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Api\\CustomerManager.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Balazs\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Balazs\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.1\\microsoft.data.sqlite.core.7.0.1.nupkg.sha512",

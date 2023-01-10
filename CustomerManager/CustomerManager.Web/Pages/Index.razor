@@ -1,6 +1,7 @@
 ﻿@page "/"
 @inject HttpClient Http
 @inject CustomerService CustomerService
+@inject DialogService DialogService
 
 @using CustomerManager.Models
 
@@ -9,6 +10,7 @@
 
 <h1>Customers</h1>
 <RadzenNotification />
+<RadzenDialog/>
 
 @if (CustomerService.customers == null)
 {
@@ -76,7 +78,7 @@ else
                 <Template Context="customer">
                     <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Medium" Click="@(args => EditRow(customer))" @onclick:stopPropagation="true">
                     </RadzenButton>
-                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@(args => DeleteRow(customer))" @onclick:stopPropagation="true">
+                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@(args => ShowDeleteConfirmDialog(customer))" @onclick:stopPropagation="true">
                     </RadzenButton>
                 </Template>
                 <EditTemplate Context="customer">
@@ -84,7 +86,7 @@ else
                     </RadzenButton>
                     <RadzenButton Icon="close" ButtonStyle="ButtonStyle.Light" Variant="Variant.Flat" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@((args) => CancelEdit(customer))">
                     </RadzenButton>
-                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@(args => DeleteRow(customer))">
+                    <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Variant="Variant.Flat" Shade="Shade.Lighter" Size="ButtonSize.Medium" Class="my-1 ms-1" Click="@(args => ShowDeleteConfirmDialog(customer))">
                     </RadzenButton>
                 </EditTemplate>
             </RadzenDataGridColumn>
@@ -163,5 +165,37 @@ else
         await CustomerService.Create(customer);
         DisableModification();
         await customersGrid.Reload();
+    }
+
+    async Task ShowDeleteConfirmDialog(Customer customer)
+    {
+        if (customer.Identifier != null)
+        {
+
+            var result = await DialogService.OpenAsync("Delete confirmation dialog", ds =>
+                                @<div>
+                                    <p Style="margin-bottom: 1rem">Are you sure, delete item with <b>@customer.Identifier</b> Identifier?</p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <RadzenButton Text="Delete" Click="() => OnDelete(customer, ds)" Style="margin-bottom: 10px; width: 150px" />
+                                            <RadzenButton Text="Cancel" Click="() => OnCancel(ds)" ButtonStyle="ButtonStyle.Secondary" Style="margin-bottom: 10px; width: 150px" />
+                                        </div>
+                                    </div>
+                                </div>,
+                                new DialogOptions() { Width = "380px" });
+        }
+        else
+        {
+            await DeleteRow(customer);
+        }
+    }
+    async Task OnDelete(Customer customer, DialogService dialogService)
+    {
+        await DeleteRow(customer);
+        dialogService.Close(false);
+    }
+    async Task OnCancel(DialogService dialogService)
+    {
+        dialogService.Close(false);
     }
 }

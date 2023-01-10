@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj",
+      "projectUniqueName": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj",
       "projectName": "CustomerManager.Models",
-      "projectPath": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj",
+      "projectPath": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj",
       "packagesPath": "C:\\Users\\Balazs\\.nuget\\packages\\",
-      "outputPath": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Models\\obj\\",
+      "outputPath": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

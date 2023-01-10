@@ -10,3 +10,15 @@ D:\Programozas\Projects\2MBeauty\CustomerManager\CustomerManager.Models\obj\Debu
 D:\Programozas\Projects\2MBeauty\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\refint\CustomerManager.Models.dll
 D:\Programozas\Projects\2MBeauty\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.pdb
 D:\Programozas\Projects\2MBeauty\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\ref\CustomerManager.Models.dll
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\bin\Debug\net6.0\CustomerManager.Models.deps.json
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\bin\Debug\net6.0\CustomerManager.Models.dll
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\bin\Debug\net6.0\CustomerManager.Models.pdb
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.csproj.AssemblyReference.cache
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.AssemblyInfoInputs.cache
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.AssemblyInfo.cs
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.csproj.CoreCompileInputs.cache
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.dll
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\refint\CustomerManager.Models.dll
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\CustomerManager.Models.pdb
+D:\Programozas\Projects\KLineBeauty\KLineBeautyCustomerManager\CustomerManager\CustomerManager.Models\obj\Debug\net6.0\ref\CustomerManager.Models.dll

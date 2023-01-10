@@ -1545,11 +1545,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Api\\CustomerManager.Api.csproj",
+      "projectUniqueName": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Api\\CustomerManager.Api.csproj",
       "projectName": "CustomerManager.Api",
-      "projectPath": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Api\\CustomerManager.Api.csproj",
+      "projectPath": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Api\\CustomerManager.Api.csproj",
       "packagesPath": "C:\\Users\\Balazs\\.nuget\\packages\\",
-      "outputPath": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Api\\obj\\",
+      "outputPath": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -1572,8 +1572,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj": {
-              "projectPath": "D:\\Programozas\\Projects\\2MBeauty\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj"
+            "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj": {
+              "projectPath": "D:\\Programozas\\Projects\\KLineBeauty\\KLineBeautyCustomerManager\\CustomerManager\\CustomerManager.Models\\CustomerManager.Models.csproj"
             }
           }
         }
